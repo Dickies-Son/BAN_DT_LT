@@ -5,19 +5,23 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 
 import com.example.ban_dt_lt.Cac_Loai_San_Pham.DienThoai;
+import com.example.ban_dt_lt.Cac_Loai_San_Pham.GioHang;
 import com.example.ban_dt_lt.Cac_Loai_San_Pham.Laptop;
+import com.example.ban_dt_lt.Cac_Loai_San_Pham.NguoiDung;
 import com.example.ban_dt_lt.R;
 import com.google.android.material.navigation.NavigationView;
 
@@ -40,6 +44,8 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout,toolbar,R.string.menu_drawer_open,R.string.menu_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+        // doi mau` hambuger ( Them cho nay )
+        toggle.getDrawerArrowDrawable().setColor(ContextCompat.getColor(this, R.color.black));
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
@@ -82,6 +88,25 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
         }
         return false;
     }
+    //option menu ( Them Cho nay )
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.nav_giohang){
+            startActivity(new Intent(this, GioHang.class));
+            overridePendingTransition(0,0);
+        } else if (itemId == R.id.nav_nguoidung) {
+            startActivity(new Intent(this, NguoiDung.class));
+            overridePendingTransition(0,0);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    //
     protected void allocateActivityTitle(String titleString){
         if (getSupportActionBar() != null){
             getSupportActionBar().setTitle(titleString);
