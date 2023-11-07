@@ -21,11 +21,23 @@
             android:name=".Cac_Loai_San_Pham.GioHang"
             android:exported="false" />
         <activity
+            android:name=".Nguoi_Dung.GioHang"
+            android:exported="false" />
+        <activity
+            android:name=".Quan_Tri_Vien.QuanLySanPham"
+            android:exported="false" />
+        <activity
+            android:name=".Nguoi_Dung.DangNhap"
+            android:exported="false" />
+        <activity
+            android:name=".Nguoi_Dung.DangKy"
+            android:exported="false" />
+        <activity
             android:name=".Cac_Loai_San_Pham.Laptop"
             android:exported="false" />
         <activity
             android:name=".Cac_Loai_San_Pham.DienThoai"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

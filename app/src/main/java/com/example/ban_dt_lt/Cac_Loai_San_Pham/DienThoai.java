@@ -16,5 +16,6 @@ public class DienThoai extends DrawerBaseActivity {
         activityDienThoaiBinding = ActivityDienThoaiBinding.inflate(getLayoutInflater());
         setContentView(activityDienThoaiBinding.getRoot());
         allocateActivityTitle("Trang Bán Điện Thoại");
+        //aaaaaa
     }
 }
