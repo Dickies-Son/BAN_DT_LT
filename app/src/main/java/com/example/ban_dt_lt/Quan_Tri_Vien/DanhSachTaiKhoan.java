@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ban_dt_lt.R;
 import com.example.ban_dt_lt.Xu_Ly_Giao_Dien.DrawerBaseActivity;
-import com.example.ban_dt_lt.Xy_Ly_Danh_Sach.adapter_danh_sach_tai_khoan;
+import com.example.ban_dt_lt.Xu_Ly_Danh_Sach.adapter_danh_sach_tai_khoan;
 import com.example.ban_dt_lt.Xu_Ly_Danh_Sach.get_set_nguoi_dung;
 import com.example.ban_dt_lt.databinding.ActivityDanhSachTaiKhoanBinding;
 import com.google.firebase.database.DataSnapshot;
