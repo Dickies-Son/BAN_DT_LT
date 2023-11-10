@@ -121,5 +121,4 @@
         android:id="@+id/da_co_tai_khoan_dang_nhap"
         android:textColor="@color/black"
         android:layout_marginBottom="20dp"/>
-
 </LinearLayout>
