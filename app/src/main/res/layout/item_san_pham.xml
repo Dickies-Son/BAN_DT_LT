@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="220dp"
+    android:layout_height="210dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="210dp"
+        android:layout_height="200dp"
         app:cardCornerRadius="15dp"
         app:cardElevation="5dp"
         android:layout_marginTop="5dp"
@@ -20,8 +20,7 @@
             <ImageView
                 android:id="@+id/Iv_HinhAnhSanPham"
                 android:layout_width="match_parent"
-                android:layout_height="130dp"
-                android:scaleType="centerCrop"/>
+                android:layout_height="110dp"/>
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -31,7 +30,6 @@
                     android:id="@+id/Tv_TenSanPham"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:textStyle="bold"
                     android:textSize="17dp"
                     android:text="Ten san pham o day"/>
@@ -40,7 +38,6 @@
                     android:id="@+id/Tv_GiaSanPham"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
                     android:layout_below="@id/Tv_TenSanPham"
                     android:textStyle="bold"
                     android:textSize="17dp"
