@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -30,6 +32,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.text.DecimalFormat;
+import java.util.UUID;
+
 public class QuanLySanPham extends DrawerBaseActivity {
     ActivityQuanLySanPhamBinding activityQuanLySanPhamBinding;
     ImageView iv_anh_san_phamC;
@@ -43,7 +48,7 @@ public class QuanLySanPham extends DrawerBaseActivity {
         super.onCreate(savedInstanceState);
         activityQuanLySanPhamBinding = ActivityQuanLySanPhamBinding.inflate(getLayoutInflater());
         setContentView(activityQuanLySanPhamBinding.getRoot());
-        allocateActivityTitle("Them san pham");
+        allocateActivityTitle("Thêm sản phẩm");
         //
         iv_anh_san_phamC =findViewById(R.id.iv_anh_san_pham);
         button_chon_anh_san_phamC = findViewById(R.id.button_chon_anh_san_pham);
@@ -51,6 +56,44 @@ public class QuanLySanPham extends DrawerBaseActivity {
         tv_gia_san_phamC = findViewById(R.id. tv_gia_san_pham);
         tv_ten_san_phamC = findViewById(R.id.tv_ten_san_pham);
         tv_mo_ta_san_phamC = findViewById(R.id.tv_mo_ta_san_pham);
+        //
+        //gia theo vnd
+        tv_gia_san_phamC.addTextChangedListener(new TextWatcher() {
+            String current = "";
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (!editable.toString().equals(current)) {
+                    tv_gia_san_phamC.removeTextChangedListener(this);
+
+                    String cleanString = editable.toString().replaceAll("[,.]", "");
+                    double parsed;
+                    try {
+                        parsed = Double.parseDouble(cleanString);
+                    } catch (NumberFormatException e) {
+                        parsed = 0.0;
+                    }
+
+                    DecimalFormat formatter = new DecimalFormat("#,###.###");
+                    String formatted = formatter.format(parsed);
+                    formatted = formatted.replace(",", ".");
+                    current = formatted;
+
+                    tv_gia_san_phamC.setText(formatted);
+                    tv_gia_san_phamC.setSelection(formatted.length());
+                    tv_gia_san_phamC.addTextChangedListener(this);
+                }
+            }
+        });
         // spinner
         spinner_pathC = findViewById(R.id.spinner_path);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.paths_array, android.R.layout.simple_spinner_item);
@@ -101,13 +144,14 @@ public class QuanLySanPham extends DrawerBaseActivity {
                                         String tenSP= tv_ten_san_phamC.getText().toString();
                                         String giaSP = tv_gia_san_phamC.getText().toString();
                                         String motaSP = tv_mo_ta_san_phamC.getText().toString();
+                                        String idSP = UUID.randomUUID().toString();
                                         if (path.equals("Lap Top")) {
                                             pathRef = databaseRef.child("Lap_Top");
                                             pathRef.child(tenSP).addListenerForSingleValueEvent(new ValueEventListener() {
                                                 @Override
                                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                    get_set_san_pham get_set_san_pham = new get_set_san_pham(tenSP,motaSP,giaSP,imageURL,"","");
-                                                    pathRef.child(tenSP).setValue(get_set_san_pham);
+                                                    get_set_san_pham get_set_san_pham = new get_set_san_pham(tenSP,motaSP,giaSP,imageURL,"","laptop",idSP);
+                                                    pathRef.child(idSP).setValue(get_set_san_pham);
                                                     Toast.makeText(QuanLySanPham.this, "Tải ảnh thành công", Toast.LENGTH_SHORT).show();
                                                     Intent intent = new Intent(QuanLySanPham.this, Laptop.class);
                                                     startActivity(intent);
@@ -124,8 +168,8 @@ public class QuanLySanPham extends DrawerBaseActivity {
                                             pathRef.child(tenSP).addListenerForSingleValueEvent(new ValueEventListener() {
                                                 @Override
                                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                    get_set_san_pham get_set_san_pham = new get_set_san_pham(tenSP,motaSP,giaSP,imageURL,"","");
-                                                    pathRef.child(tenSP).setValue(get_set_san_pham);
+                                                    get_set_san_pham get_set_san_pham = new get_set_san_pham(tenSP,motaSP,giaSP,imageURL,"","dienthoai",idSP);
+                                                    pathRef.child(idSP).setValue(get_set_san_pham);
                                                     Toast.makeText(QuanLySanPham.this, "Tải ảnh thành công", Toast.LENGTH_SHORT).show();
                                                     Intent intent = new Intent(QuanLySanPham.this, Laptop.class);
                                                     startActivity(intent);
@@ -142,8 +186,8 @@ public class QuanLySanPham extends DrawerBaseActivity {
                                             pathRef.child(tenSP).addListenerForSingleValueEvent(new ValueEventListener() {
                                                 @Override
                                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                    get_set_san_pham get_set_san_pham = new get_set_san_pham(tenSP,motaSP,giaSP,imageURL,"","");
-                                                    pathRef.child(tenSP).setValue(get_set_san_pham);
+                                                    get_set_san_pham get_set_san_pham = new get_set_san_pham(tenSP,motaSP,giaSP,imageURL,"","loa",idSP);
+                                                    pathRef.child(idSP).setValue(get_set_san_pham);
                                                     Toast.makeText(QuanLySanPham.this, "Tải ảnh thành công", Toast.LENGTH_SHORT).show();
                                                     Intent intent = new Intent(QuanLySanPham.this, Laptop.class);
                                                     startActivity(intent);
@@ -156,7 +200,6 @@ public class QuanLySanPham extends DrawerBaseActivity {
                                                 }
                                             });
                                         }
-                                        //
                                     });
                                 })
                                 .addOnFailureListener(e -> {

@@ -78,7 +78,8 @@ public class Laptop extends DrawerBaseActivity implements adapter_recyclerview.U
                     String giaTien = dataSnapshot.child("giaTien").getValue(String.class);
                     String hinhAnh = dataSnapshot.child("hinhAnh").getValue(String.class);
                     String moTa = dataSnapshot.child("moTa").getValue(String.class);
-                    get_set_san_pham sanPham = new get_set_san_pham(tenSP, moTa, giaTien, hinhAnh,"","");
+                    String idSP = dataSnapshot.child("idSP").getValue(String.class);
+                    get_set_san_pham sanPham = new get_set_san_pham(tenSP, moTa, giaTien, hinhAnh,"","",idSP);
                     lstGetSetC.add(sanPham);
                 }
                 if (tennguoidung_admin.isEmpty()){
@@ -96,12 +97,13 @@ public class Laptop extends DrawerBaseActivity implements adapter_recyclerview.U
     }
 
     @Override
-    public void onItemClick(String giaTien, String hinhAnh, String tenSP, String moTa) {
+    public void onItemClick(String giaTien, String hinhAnh, String tenSP, String moTa,String idSP) {
         Intent i = new Intent(Laptop.this, chi_tiet_san_pham.class);
         i.putExtra("giaTien",giaTien);
         i.putExtra("hinhAnh",hinhAnh);
         i.putExtra("tenSP",tenSP);
         i.putExtra("moTa",moTa);
+        i.putExtra("idSP", idSP);
         startActivity(i);
     }
 }

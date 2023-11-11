@@ -28,7 +28,9 @@ import com.example.ban_dt_lt.Nguoi_Dung.DangKy;
 import com.example.ban_dt_lt.Nguoi_Dung.DangNhap;
 import com.example.ban_dt_lt.Nguoi_Dung.GioHang;
 import com.example.ban_dt_lt.Nguoi_Dung.NguoiDung;
+import com.example.ban_dt_lt.Quan_Tri_Vien.DanhSachDatHang;
 import com.example.ban_dt_lt.Quan_Tri_Vien.DanhSachTaiKhoan;
+import com.example.ban_dt_lt.Quan_Tri_Vien.DanhSachXacNhan;
 import com.example.ban_dt_lt.Quan_Tri_Vien.QuanLySanPham;
 import com.example.ban_dt_lt.R;
 import com.google.android.material.navigation.NavigationView;
@@ -90,6 +92,8 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
             ten_nguoi_dungC.setText("Xin chào, " + tennguoidung);
             navigationView.getMenu().findItem(R.id.nav_4).setVisible(false);
             navigationView.getMenu().findItem(R.id.nav_5).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_6).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_7).setVisible(false);
             layout_2C.setVisibility(View.GONE);
         } else {
             // view admin
@@ -105,6 +109,8 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
                 btnDangKyC.setVisibility(View.VISIBLE);
                 navigationView.getMenu().findItem(R.id.nav_4).setVisible(false);
                 navigationView.getMenu().findItem(R.id.nav_5).setVisible(false);
+                navigationView.getMenu().findItem(R.id.nav_6).setVisible(false);
+                navigationView.getMenu().findItem(R.id.nav_7).setVisible(false);
             }
         }
     }
@@ -150,6 +156,12 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
             overridePendingTransition(0,0);
         }else if (itemId == R.id.nav_5) {
             startActivity(new Intent(this, DanhSachTaiKhoan.class));
+            overridePendingTransition(0,0);
+        }else if (itemId == R.id.nav_6) {
+            startActivity(new Intent(this, DanhSachDatHang.class));
+            overridePendingTransition(0,0);
+        }else if (itemId == R.id.nav_7) {
+            startActivity(new Intent(this, DanhSachXacNhan.class));
             overridePendingTransition(0,0);
         }
         return false;

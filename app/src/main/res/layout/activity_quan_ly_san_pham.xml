@@ -69,6 +69,7 @@
                 android:drawablePadding="8dp"
                 android:hint="Nhập giá tiền sản phẩm"
                 android:textSize="15dp"
+                android:inputType="number"
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"

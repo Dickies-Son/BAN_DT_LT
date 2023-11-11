@@ -48,6 +48,7 @@ public class adapter_danh_sach_dat_hang extends RecyclerView.Adapter<adapter_dan
         holder.tvTen_san_pham_dat_hangC.setText(item.getTenSP());
         holder.tvSo_luong_dat_hangC.setText(item.getSoLuong());
         holder.tvTong_tien_dat_hangC.setText(item.getGiaTien());
+        holder.tvTrang_thai_dat_hangC.setText(item.getMoTa());
         Picasso.get().load(item.getHinhAnh()).into(holder.ivHinh_anh_dat_hangC);
         holder.iv_xoa_san_pham_dat_hangC.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,7 +86,7 @@ public class adapter_danh_sach_dat_hang extends RecyclerView.Adapter<adapter_dan
 
     @Override
     public int getItemCount() {
-        return 0;
+        return lstGetSet.size();
     }
 
     public class UserViewHolder extends RecyclerView.ViewHolder {
