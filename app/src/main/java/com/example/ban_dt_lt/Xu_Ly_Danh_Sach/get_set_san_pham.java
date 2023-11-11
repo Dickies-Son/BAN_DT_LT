@@ -4,15 +4,25 @@ public class get_set_san_pham {
     String tenSP;
     String moTa;
     String giaTien;
+    String loaiSP;
     String hinhAnh;
     String soLuong;
 
-    public get_set_san_pham(String tenSP, String moTa, String giaTien, String hinhAnh,String soLuong) {
+    public get_set_san_pham(String tenSP, String moTa, String giaTien, String hinhAnh,String soLuong,String loaiSP) {
+        this.loaiSP = loaiSP;
         this.tenSP = tenSP;
         this.moTa = moTa;
         this.giaTien = giaTien;
         this.hinhAnh = hinhAnh;
         this.soLuong = soLuong;
+    }
+
+    public String getLoaiSP() {
+        return loaiSP;
+    }
+
+    public void setLoaiSP(String loaiSP) {
+        this.loaiSP = loaiSP;
     }
 
     public String getSoLuong() {

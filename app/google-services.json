@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "136254983732",
+    "firebase_url": "https://ban-dt-default-rtdb.firebaseio.com",
+    "project_id": "ban-dt",
+    "storage_bucket": "ban-dt.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:136254983732:android:0fbc8615e7b155b932c461",
+        "android_client_info": {
+          "package_name": "com.example.ban_dt_lt"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIwGbgQEMiXNfF9AJKRAvhtvp6vOfr5Jc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

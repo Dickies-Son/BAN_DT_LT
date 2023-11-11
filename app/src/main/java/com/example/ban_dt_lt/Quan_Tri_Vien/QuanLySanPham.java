@@ -17,9 +17,18 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.ban_dt_lt.Cac_Loai_San_Pham.Laptop;
 import com.example.ban_dt_lt.R;
+import com.example.ban_dt_lt.Xu_Ly_Danh_Sach.get_set_san_pham;
 import com.example.ban_dt_lt.Xu_Ly_Giao_Dien.DrawerBaseActivity;
 import com.example.ban_dt_lt.databinding.ActivityQuanLySanPhamBinding;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class QuanLySanPham extends DrawerBaseActivity {
     ActivityQuanLySanPhamBinding activityQuanLySanPhamBinding;
@@ -97,7 +106,7 @@ public class QuanLySanPham extends DrawerBaseActivity {
                                             pathRef.child(tenSP).addListenerForSingleValueEvent(new ValueEventListener() {
                                                 @Override
                                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                    get_set_san_pham get_set_san_pham = new get_set_san_pham(tenSP,motaSP,giaSP,imageURL,"");
+                                                    get_set_san_pham get_set_san_pham = new get_set_san_pham(tenSP,motaSP,giaSP,imageURL,"","");
                                                     pathRef.child(tenSP).setValue(get_set_san_pham);
                                                     Toast.makeText(QuanLySanPham.this, "Tải ảnh thành công", Toast.LENGTH_SHORT).show();
                                                     Intent intent = new Intent(QuanLySanPham.this, Laptop.class);
@@ -115,7 +124,7 @@ public class QuanLySanPham extends DrawerBaseActivity {
                                             pathRef.child(tenSP).addListenerForSingleValueEvent(new ValueEventListener() {
                                                 @Override
                                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                    get_set_san_pham get_set_san_pham = new get_set_san_pham(tenSP,motaSP,giaSP,imageURL,"");
+                                                    get_set_san_pham get_set_san_pham = new get_set_san_pham(tenSP,motaSP,giaSP,imageURL,"","");
                                                     pathRef.child(tenSP).setValue(get_set_san_pham);
                                                     Toast.makeText(QuanLySanPham.this, "Tải ảnh thành công", Toast.LENGTH_SHORT).show();
                                                     Intent intent = new Intent(QuanLySanPham.this, Laptop.class);
@@ -133,7 +142,7 @@ public class QuanLySanPham extends DrawerBaseActivity {
                                             pathRef.child(tenSP).addListenerForSingleValueEvent(new ValueEventListener() {
                                                 @Override
                                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                    get_set_san_pham get_set_san_pham = new get_set_san_pham(tenSP,motaSP,giaSP,imageURL,"");
+                                                    get_set_san_pham get_set_san_pham = new get_set_san_pham(tenSP,motaSP,giaSP,imageURL,"","");
                                                     pathRef.child(tenSP).setValue(get_set_san_pham);
                                                     Toast.makeText(QuanLySanPham.this, "Tải ảnh thành công", Toast.LENGTH_SHORT).show();
                                                     Intent intent = new Intent(QuanLySanPham.this, Laptop.class);

@@ -11,8 +11,17 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.example.ban_dt_lt.R;
+import com.example.ban_dt_lt.Xu_Ly_Danh_Sach.adapter_danh_sach_san_pham_admin;
+import com.example.ban_dt_lt.Xu_Ly_Danh_Sach.adapter_recyclerview;
+import com.example.ban_dt_lt.Xu_Ly_Danh_Sach.chi_tiet_san_pham;
+import com.example.ban_dt_lt.Xu_Ly_Danh_Sach.get_set_san_pham;
 import com.example.ban_dt_lt.Xu_Ly_Giao_Dien.DrawerBaseActivity;
 import com.example.ban_dt_lt.databinding.ActivityLaptopBinding;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 

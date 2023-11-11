@@ -10,6 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.ban_dt_lt.R;
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class adapter_recyclerview extends RecyclerView.Adapter<adapter_recyclerview.UserViewHolder> {
@@ -67,3 +70,4 @@ public class adapter_recyclerview extends RecyclerView.Adapter<adapter_recyclerv
         void onItemClick(String giaTien, String hinhAnh, String tenSP, String moTa);
     }
 }
+

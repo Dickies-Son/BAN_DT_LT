@@ -13,6 +13,11 @@ import android.widget.Toast;
 
 import com.example.ban_dt_lt.R;
 import com.example.ban_dt_lt.Xu_Ly_Danh_Sach.get_set_nguoi_dung;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class DangKy extends AppCompatActivity {
     EditText username_dang_kyC,sdt_dang_kyC,mat_khau_dang_kyC,re_mat_khau_dang_kyC,dia_chi_giao_hangC;

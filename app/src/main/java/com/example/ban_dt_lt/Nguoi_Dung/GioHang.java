@@ -6,12 +6,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 
 import com.example.ban_dt_lt.R;
 import com.example.ban_dt_lt.Xu_Ly_Danh_Sach.adapter_gio_hang;
 import com.example.ban_dt_lt.Xu_Ly_Danh_Sach.get_set_san_pham;
 import com.example.ban_dt_lt.Xu_Ly_Giao_Dien.DrawerBaseActivity;
 import com.example.ban_dt_lt.databinding.ActivityGioHangBinding;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -54,7 +60,7 @@ public class GioHang extends DrawerBaseActivity {
                     String hinhAnh = snapshot.child("hinhAnh").getValue(String.class);
                     String moTa = snapshot.child("moTa").getValue(String.class);
                     String soLuong = snapshot.child("soLuong").getValue(String.class);
-                    get_set_san_pham sanPham = new get_set_san_pham(tenSP,moTa,giaTien,hinhAnh,soLuong);
+                    get_set_san_pham sanPham = new get_set_san_pham(tenSP,moTa,giaTien,hinhAnh,soLuong,"");
                     lstGetSetC.add(sanPham);
                 }
                 adapter_recyclerviewC.notifyDataSetChanged(); // Cập nhật RecyclerView khi có thay đổi dữ liệu
